@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { signIn, signUp } from './lib/auth'
 import { useAuth } from './context/AuthContext'
 import AppLayout from './components/layout/AppLayout'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Applications from './pages/Applications'
+import Dashboard from './pages/Dashboard'
 
 function AuthScreen() {
   const [isSignUp, setIsSignUp] = useState(false)
@@ -179,7 +180,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<AppLayout />}>
-            <Route index element={<Navigate to="/applications" replace />} />
+            <Route index element={<Dashboard />} />
             <Route path="applications" element={<Applications />} />
           </Route>
         </Routes>
